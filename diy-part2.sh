@@ -45,6 +45,17 @@ sed -i '/set luci.main.mediaurlbase=\/luci-static\/bootstrap/d' feeds/luci/theme
 sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci/Makefile
 #sed -i 's/luci-theme-bootstrap/luci-theme-argon_armygreen/g' ./feeds/luci/collections/luci/Makefile
 
+# 修改luci-theme-argon_armygreen主题渐变色，16进制RGB
+#渐变色开始
+sed -i 's/#7f7fff/#5F9EA0/g' package/lean/luci-theme-argon_armygreen/htdocs/luci-static/argon_armygreen/css/style.css
+#渐变色结束
+sed -i 's/#7fffffb8/#7fbfffb8/g' package/lean/luci-theme-argon_armygreen/htdocs/luci-static/argon_armygreen/css/style.css
+sed -i 's/#9effff57/#7fbfff57/g' package/lean/luci-theme-argon_armygreen/htdocs/luci-static/argon_armygreen/css/style.css
+
+sed -i 's/#00FF00/#87CEEB/g' package/lean/luci-theme-argon_armygreen/htdocs/luci-static/argon_armygreen/css/style.css
+sed -i 's/#5e72e4/#87CEEB/g' package/lean/luci-theme-argon_armygreen/htdocs/luci-static/argon_armygreen/css/style.css
+sed -i 's/#4F2EDC/#87CEEB/g' package/lean/luci-theme-argon_armygreen/htdocs/luci-static/argon_armygreen/css/style.css
+
 # 设置密码为空（安装固件时无需密码登陆，然后自己修改想要的密码）
 sed -i 's@.*CYXluq4wUazHjmCDBCqXF*@#&@g' package/lean/default-settings/files/zzz-default-settings
 # 修改想要的root密码
