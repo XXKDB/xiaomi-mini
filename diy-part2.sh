@@ -24,6 +24,8 @@ sed -i '/uci commit system/i\uci set system.@system[0].hostname='XXKDB'' package
 #sed -i "s/OpenWrt /ababwnq build $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt /g" package/lean/default-settings/files/zzz-default-settings
 sed -i "s/OpenWrt /星新课代表/g" package/lean/default-settings/files/zzz-default-settings
 
+#更改主机型号，支持中文。 
+sed -i "s/Xiaomi MiWiFi Mini/星新课代表制作出品/g" target/linux/ramips/dts/mt7620a_xiaomi_miwifi-mini.dts
 
 #删除原默认主题
 rm -rf package/lean/luci-theme-argon
@@ -38,23 +40,23 @@ rm -rf package/lean/luci-theme-ifit
 #git clone https://github.com/xiaoqingfengATGH/luci-theme-infinityfreedom.git package/lean/luci-theme-infinityfreedom
 git clone https://github.com/XXKDB/luci-theme-argon_armygreen.git package/lean/luci-theme-argon_armygreen
 #git clone https://github.com/YL2209/luci-app-privoxy.git package/lean/luci-app-privoxy
-git clone https://github.com/YL2209/luci-theme-ifit.git package/lean/luci-theme-ifit
+#git clone https://github.com/YL2209/luci-theme-ifit.git package/lean/luci-theme-ifit
 
 # 修改luci-theme-argon_armygreen主题渐变色，16进制RGB
-#登录页面背景颜色
-sed -i 's/#f7fafc/rgba(134,176,197, .25)/g' package/lean/luci-theme-argon_armygreen/htdocs/luci-static/argon_armygreen/css/style.css
+#登录页面背景颜色 透明值
+sed -i 's/#f7fafc/rgba(134,176,197, .5)/g' package/lean/luci-theme-argon_armygreen/htdocs/luci-static/argon_armygreen/css/style.css
 
 #渐变色开始
 sed -i 's/#f9ffff/#80ABC3/g' package/lean/luci-theme-argon_armygreen/htdocs/luci-static/argon_armygreen/css/style.css
 #渐变色结束b8 57
-sed -i 's/#7fffffb8/#417994/g' package/lean/luci-theme-argon_armygreen/htdocs/luci-static/argon_armygreen/css/style.css
+sed -i 's/#7fffffb8/#5C859B/g' package/lean/luci-theme-argon_armygreen/htdocs/luci-static/argon_armygreen/css/style.css
 sed -i 's/#9effff57/#9FC4D5/g' package/lean/luci-theme-argon_armygreen/htdocs/luci-static/argon_armygreen/css/style.css
 #应用+保存
 #sed -i 's/#46b8da/#407994/g' package/lean/luci-theme-argon_armygreen/htdocs/luci-static/argon_armygreen/css/style.css
 #未选中
 #sed -i 's/#a2a287/#6F7E92/g' package/lean/luci-theme-argon_armygreen/htdocs/luci-static/argon_armygreen/css/style.css
-#主机名  ，导航栏-状态-文字的颜色
-sed -i 's/#4fc352/#B7E0F3/g' package/lean/luci-theme-argon_armygreen/htdocs/luci-static/argon_armygreen/css/style.css
+#导航栏-状态-文字的颜色
+sed -i 's/#4fc352/#496A81/g' package/lean/luci-theme-argon_armygreen/htdocs/luci-static/argon_armygreen/css/style.css
 #导航栏-系统-文字的颜色
 #sed -i 's/#fb6340/#E0DAD6/g' package/lean/luci-theme-argon_armygreen/htdocs/luci-static/argon_armygreen/css/style.css
 #导航栏-服务-文字的颜色
@@ -115,7 +117,7 @@ sed -i 's@.*CYXluq4wUazHjmCDBCqXF*@#&@g' package/lean/default-settings/files/zzz
 # 修改想要的root密码
 #sed -i 's/root:$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.:0:0:99999:7:::/root:你的密码/g' package/lean/default-settings/files/zzz-default-settings
 # 修改插件名字（修改名字后不知道会不会对插件功能有影响，自己多测试）
-#sed -i 's/"Turbo ACC 网络加速"/"网络加速"/g' package/lean/luci-app-flowoffload/po/zh-cn/flowoffload.po
+sed -i 's/"Turbo ACC 网络加速"/"网络加速"/g' package/lean/luci-app-flowoffload/po/zh-cn/flowoffload.po
 
 # 修改默认wifi名称ssid为XXKDB
 sed -i 's/ssid=OpenWrt/ssid=XXKDB/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh
